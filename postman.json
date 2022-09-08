@@ -15,7 +15,7 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "organization_id",
+								"key": "organizationId",
 								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
 								"type": "text"
 							}
@@ -133,8 +133,13 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "organization_id",
+								"key": "organizationId",
 								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -285,12 +290,14 @@
 								{
 									"key": "name",
 									"value": "Bishal Gurung",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "phone",
 									"value": "989898",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "email",
@@ -407,6 +414,203 @@
 								{
 									"key": "vendor_id",
 									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coshh",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Coshh 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/coshh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"coshh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bishal Gurung",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/coshh/:coshh_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"coshh",
+								":coshh_id"
+							],
+							"variable": [
+								{
+									"key": "coshh_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/coshh?status=0&paginate=&limit=&sort_key=&sort_order=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"coshh"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "0"
+								},
+								{
+									"key": "paginate",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "sort_key",
+									"value": ""
+								},
+								{
+									"key": "sort_order",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/coshh/:coshh_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"coshh",
+								":coshh_id"
+							],
+							"variable": [
+								{
+									"key": "coshh_id",
+									"value": "1"
 								}
 							]
 						}
