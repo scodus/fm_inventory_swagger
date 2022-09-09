@@ -499,6 +499,18 @@ paths:
                 image:
                   type: string
                   format: binary
+                risk_assessments[0][key]:
+                  type: string
+                  example: a
+                risk_assessments[0][value]:
+                  type: string
+                  example: abc
+                risk_assessments[1][key]:
+                  type: string
+                  example: b
+                risk_assessments[1][value]:
+                  type: string
+                  example: bcd
       parameters:
         - name: organizationId
           in: header
@@ -588,12 +600,24 @@ paths:
                 _method:
                   type: string
                   example: PUT
-                image:
-                  type: string
-                  format: binary
                 status:
                   type: integer
                   example: '1'
+                risk_assessments[0][key]:
+                  type: string
+                  example: a
+                risk_assessments[0][value]:
+                  type: string
+                  example: abc
+                risk_assessments[1][key]:
+                  type: string
+                  example: b
+                risk_assessments[1][value]:
+                  type: string
+                  example: bcd
+                image:
+                  type: string
+                  format: binary
       parameters:
         - name: Accept
           in: header
@@ -610,7 +634,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '5'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -631,7 +655,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '3'
+          example: '1'
       responses:
         '200':
           description: Successful response
