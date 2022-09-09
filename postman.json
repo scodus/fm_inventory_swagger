@@ -25,7 +25,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "Sub Title 2",
+									"value": "Sub Title 3",
 									"type": "text"
 								},
 								{
@@ -46,7 +46,7 @@
 								},
 								{
 									"key": "status",
-									"value": "",
+									"value": "0",
 									"type": "text"
 								}
 							]
@@ -144,7 +144,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/category?status=&sort_key=&sort_order=&paginate=&limit=",
+							"raw": "{{url}}/api/category?status=0&sort_key=TITLE&sort_order=desc&paginate=&limit=",
 							"host": [
 								"{{url}}"
 							],
@@ -155,15 +155,15 @@
 							"query": [
 								{
 									"key": "status",
-									"value": ""
+									"value": "0"
 								},
 								{
 									"key": "sort_key",
-									"value": ""
+									"value": "TITLE"
 								},
 								{
 									"key": "sort_order",
-									"value": ""
+									"value": "desc"
 								},
 								{
 									"key": "paginate",
@@ -517,6 +517,11 @@
 									"key": "_method",
 									"value": "PUT",
 									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
 								}
 							]
 						},
@@ -611,6 +616,253 @@
 								{
 									"key": "coshh_id",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Coshh 1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
+									"type": "text"
+								},
+								{
+									"key": "used_for",
+									"value": "adw",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coshh_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coshh_ids[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/item",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Coshh 1 edited",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
+									"type": "text"
+								},
+								{
+									"key": "used_for",
+									"value": "adws",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coshh_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coshh_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Leon Schiffer/Downloads/memes/266347238_104317682106572_2198693206912692970_n.jpg"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/item/:item_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item",
+								":item_id"
+							],
+							"variable": [
+								{
+									"key": "item_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/item?status=&paginate=1&limit=1&sort_key=id&sort_order=asc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": ""
+								},
+								{
+									"key": "paginate",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "sort_key",
+									"value": "id"
+								},
+								{
+									"key": "sort_order",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/item/:item_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item",
+								":item_id"
+							],
+							"variable": [
+								{
+									"key": "item_id",
+									"value": "3"
 								}
 							]
 						}
