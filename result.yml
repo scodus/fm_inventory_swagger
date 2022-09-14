@@ -554,7 +554,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '15'
         - name: sort_key
           in: query
           schema:
@@ -565,6 +565,10 @@ paths:
           schema:
             type: string
           example: asc
+        - name: coshh_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -603,7 +607,7 @@ paths:
                   example: '3'
                 coshh_ids[]:
                   type: integer
-                  example: '1'
+                  example: '3'
                 _method:
                   type: string
                   example: PUT
@@ -635,7 +639,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '8'
       responses:
         '200':
           description: Successful response
