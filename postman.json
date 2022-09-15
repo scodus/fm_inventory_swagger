@@ -839,7 +839,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/item?status=1&paginate=1&limit=15&sort_key=id&sort_order=asc&coshh_id=",
+							"raw": "{{url}}/api/item?status=1&paginate=1&limit=15&sort_key=id&sort_order=asc&coshh_id=&category_id=2&sub_category_id=3",
 							"host": [
 								"{{url}}"
 							],
@@ -871,6 +871,14 @@
 								{
 									"key": "coshh_id",
 									"value": ""
+								},
+								{
+									"key": "category_id",
+									"value": "2"
+								},
+								{
+									"key": "sub_category_id",
+									"value": "3"
 								}
 							]
 						}
