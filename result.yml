@@ -569,6 +569,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: sub_category_id
+          in: query
+          schema:
+            type: integer
+          example: '3'
       responses:
         '200':
           description: Successful response
