@@ -40,7 +40,7 @@
 								},
 								{
 									"key": "parent_id",
-									"value": "1",
+									"value": "3",
 									"type": "text"
 								},
 								{
@@ -625,6 +625,243 @@
 			]
 		},
 		{
+			"name": "Client Group",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Client Group 3\",\r\n    \"client_ids\": [\r\n        1,\r\n        2,\r\n        3\r\n    ],\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/client-group",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Client Group Edited\",\r\n    \"client_ids\" : [1,4,5],\r\n    \"status\" : 1,\r\n    \"_method\" : \"PUT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/client-group/:client_group_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group",
+								":client_group_id"
+							],
+							"variable": [
+								{
+									"key": "client_group_id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/client-group?status=1&paginate=&limit=&sort_key=name&sort_order=asc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "paginate",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "sort_key",
+									"value": "name"
+								},
+								{
+									"key": "sort_order",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/client-group/:client_group_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group",
+								":client_group_id"
+							],
+							"variable": [
+								{
+									"key": "client_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find client group by client id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/client-group/:client_id/client",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group",
+								":client_id",
+								"client"
+							],
+							"variable": [
+								{
+									"key": "client_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get occupied client ids",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/client-group/client-ids-occupied",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client-group",
+								"client-ids-occupied"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Item",
 			"item": [
 				{
@@ -648,14 +885,13 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Coshh 1",
+									"value": "Item 5",
 									"type": "text"
 								},
 								{
 									"key": "price",
 									"value": "123",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "description",
@@ -909,6 +1145,98 @@
 							"variable": [
 								{
 									"key": "item_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add items by client group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item_ids\" : [1,2,3,4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/item/:client_group_id/client-group",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item",
+								":client_group_id",
+								"client-group"
+							],
+							"variable": [
+								{
+									"key": "client_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add items by client id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item_ids\" : [2,4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/item/:client_id/client-id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"item",
+								":client_id",
+								"client-id"
+							],
+							"variable": [
+								{
+									"key": "client_id",
 									"value": "1"
 								}
 							]
