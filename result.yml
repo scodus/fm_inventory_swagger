@@ -74,6 +74,8 @@ paths:
       tags:
         - Category
       summary: index
+      security:
+        - bearerAuth: []
       parameters:
         - name: organizationId
           in: header
@@ -487,7 +489,7 @@ paths:
                 client_ids:
                   - 1
                   - 2
-                  - 3
+                  - asdw-dawdf2j0=213
                 status: 1
       parameters:
         - name: organizationId
@@ -628,9 +630,9 @@ paths:
         - name: client_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '4'
+          example: asdw-dawdf2j0=213
       responses:
         '200':
           description: Successful response
@@ -664,48 +666,50 @@ paths:
       summary: store
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                name:
-                  type: string
-                  example: Item 5
-                price:
-                  type: integer
-                  example: '123'
-                description:
-                  type: string
-                  example: |
-                    alsdjlakjd
-                    asjdlkwjdaklsjdklsajdwa
-                used_for:
-                  type: string
-                  example: adw
-                category_id:
-                  type: integer
-                  example: '1'
-                sub_category_id:
-                  type: integer
-                  example: '4'
-                coshh_ids[]:
-                  type: integer
-                  example: '2'
-                risk_assessments[abc]:
-                  type: string
-                  example: ab
-                risk_assessments[b]:
-                  type: string
-                  example: bcde
-                image:
-                  type: string
-                  format: binary
+              example:
+                name: Item 1
+                price: 123
+                description: alsdjlakjd↵asjdlkwjdaklsjdklsajdwa
+                used_for: adws
+                category_id: 1
+                sub_category_id: 3
+                coshh_ids:
+                  - 1
+                  - 3
+                status: 1
+                variations:
+                  - vendor_id: 123ads
+                    size: large
+                    color: black
+                    price: 200
+                    quantity: 5
+                    sku: sku123
+                  - vendor_id: 123ads
+                    size: medium
+                    color: pink
+                    price: 100
+                    quantity: 2
+                    sku: sku124
+                  - vendor_id: 123ads
+                    size: xxl
+                    color: white
+                    price: 400
+                    quantity: 8
+                    sku: sku125
+                risk_assessments:
+                  abc: ab
+                  b: bcde
+      security:
+        - bearerAuth: []
       parameters:
         - name: organizationId
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: Accept
           in: header
           schema:
@@ -725,7 +729,7 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: d9e4a435-f9b3-4fdb-aeb4-308942c47d3b
         - name: status
           in: query
           schema:
@@ -758,13 +762,15 @@ paths:
         - name: category_id
           in: query
           schema:
-            type: integer
-          example: '2'
+            type: string
         - name: sub_category_id
           in: query
           schema:
-            type: integer
-          example: '3'
+            type: string
+        - name: client_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -777,48 +783,39 @@ paths:
       summary: update
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                name:
-                  type: string
-                  example: Coshh 1 edited
-                price:
-                  type: integer
-                  example: '123'
-                description:
-                  type: string
-                  example: |
-                    alsdjlakjd
-                    asjdlkwjdaklsjdklsajdwa
-                used_for:
-                  type: string
-                  example: adws
-                category_id:
-                  type: integer
-                  example: '1'
-                sub_category_id:
-                  type: integer
-                  example: '3'
-                coshh_ids[]:
-                  type: integer
-                  example: '3'
-                _method:
-                  type: string
-                  example: PUT
-                status:
-                  type: integer
-                  example: '1'
-                risk_assessments[abc]:
-                  type: string
-                  example: ab
-                risk_assessments[b]:
-                  type: string
-                  example: bcde
-                image:
-                  type: string
-                  format: binary
+              example:
+                name: Item 1 edited
+                price: 123
+                description: alsdjlakjd↵asjdlkwjdaklsjdklsajdwa
+                used_for: adws
+                category_id: 1
+                sub_category_id: 3
+                coshh_ids:
+                  - 1
+                  - 3
+                status: 1
+                variations:
+                  - id: 17
+                    vendor_id: '123'
+                    size: L
+                    color: Black
+                    price: 200
+                    quantity: 6
+                    sku: sku123
+                  - id: 18
+                    vendor_id: '123'
+                    size: XXL
+                    color: White
+                    price: 400
+                    quantity: 8
+                    sku: sku125
+                risk_assessments:
+                  abc: ab
+                  b: bcde
+                _method: PUT
       parameters:
         - name: Accept
           in: header
@@ -829,13 +826,13 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: item_id
           in: path
           schema:
             type: integer
           required: true
-          example: '8'
+          example: '96'
       responses:
         '200':
           description: Successful response
@@ -877,7 +874,6 @@ paths:
                   - 1
                   - 2
                   - 3
-                  - 4
       parameters:
         - name: organizationId
           in: header
@@ -913,6 +909,7 @@ paths:
               example:
                 item_ids:
                   - 2
+                  - 3
                   - 4
       parameters:
         - name: organizationId
