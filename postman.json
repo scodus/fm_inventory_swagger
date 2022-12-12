@@ -129,6 +129,16 @@
 				{
 					"name": "index",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -645,7 +655,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Client Group 3\",\r\n    \"client_ids\": [\r\n        1,\r\n        2,\r\n        3\r\n    ],\r\n    \"status\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Client Group 3\",\r\n    \"client_ids\": [\r\n        1,\r\n        2,\r\n        \"asdw-dawdf2j0=213\"\r\n    ],\r\n    \"status\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -822,7 +832,7 @@
 							"variable": [
 								{
 									"key": "client_id",
-									"value": "4"
+									"value": "asdw-dawdf2j0=213"
 								}
 							]
 						}
@@ -867,11 +877,21 @@
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "{{organization_id}}",
 								"type": "text"
 							},
 							{
@@ -881,68 +901,13 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Item 5",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "123",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "used_for",
-									"value": "adw",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "category_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sub_category_id",
-									"value": "4",
-									"type": "text"
-								},
-								{
-									"key": "coshh_ids[]",
-									"value": "1",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "coshh_ids[]",
-									"value": "2",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "risk_assessments[abc]",
-									"value": "ab",
-									"type": "text"
-								},
-								{
-									"key": "risk_assessments[b]",
-									"value": "bcde",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Item 1\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"price\": 200,\r\n            \"quantity\": 5,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"price\": 100,\r\n            \"quantity\": 2,\r\n            \"sku\": \"sku124\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"xxl\",\r\n            \"color\": \"white\",\r\n            \"price\": 400,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/item",
@@ -969,79 +934,18 @@
 							},
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "{{organization_id}}",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Coshh 1 edited",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "123",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
-									"type": "text"
-								},
-								{
-									"key": "used_for",
-									"value": "adws",
-									"type": "text"
-								},
-								{
-									"key": "category_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sub_category_id",
-									"value": "3",
-									"type": "text"
-								},
-								{
-									"key": "coshh_ids[]",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "coshh_ids[]",
-									"value": "3",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "risk_assessments[abc]",
-									"value": "ab",
-									"type": "text"
-								},
-								{
-									"key": "risk_assessments[b]",
-									"value": "bcde",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/Leon Schiffer/Downloads/memes/266347238_104317682106572_2198693206912692970_n.jpg"
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Item 1 edited\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"id\": 17,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"L\",\r\n            \"color\": \"Black\",\r\n            \"price\": 200,\r\n            \"quantity\": 6,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        \r\n        {\r\n            \"id\": 18,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"XXL\",\r\n            \"color\": \"White\",\r\n            \"price\": 400,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    },\r\n    \"_method\": \"PUT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/item/:item_id",
@@ -1056,7 +960,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "8"
+									"value": "96"
 								}
 							]
 						}
@@ -1070,12 +974,12 @@
 						"header": [
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "d9e4a435-f9b3-4fdb-aeb4-308942c47d3b",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/item?status=1&paginate=1&limit=15&sort_key=id&sort_order=asc&coshh_id=&category_id=2&sub_category_id=3",
+							"raw": "{{url}}/api/item?status=1&paginate=1&limit=15&sort_key=id&sort_order=asc&coshh_id=&category_id=&sub_category_id=&client_id=",
 							"host": [
 								"{{url}}"
 							],
@@ -1110,11 +1014,15 @@
 								},
 								{
 									"key": "category_id",
-									"value": "2"
+									"value": ""
 								},
 								{
 									"key": "sub_category_id",
-									"value": "3"
+									"value": ""
+								},
+								{
+									"key": "client_id",
+									"value": ""
 								}
 							]
 						}
@@ -1170,7 +1078,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item_ids\" : [1,2,3,4]\r\n}",
+							"raw": "{\r\n    \"item_ids\" : [1,2,3]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1216,7 +1124,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item_ids\" : [2,4]\r\n}",
+							"raw": "{\r\n    \"item_ids\" : [2,3,4]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
