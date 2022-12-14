@@ -30,6 +30,7 @@ tags:
   - name: Coshh
   - name: Client Group
   - name: Item
+  - name: Order
 paths:
   /api/category:
     post:
@@ -729,12 +730,11 @@ paths:
           in: header
           schema:
             type: string
-          example: d9e4a435-f9b3-4fdb-aeb4-308942c47d3b
+          example: '{{organization_id}}'
         - name: status
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
         - name: paginate
           in: query
           schema:
@@ -744,7 +744,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '15'
+          example: '100'
         - name: sort_key
           in: query
           schema:
@@ -803,7 +803,7 @@ paths:
                     size: L
                     color: Black
                     price: 200
-                    quantity: 6
+                    quantity: null
                     sku: sku123
                   - id: 18
                     vendor_id: '123'
@@ -832,7 +832,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '96'
+          example: '16'
       responses:
         '200':
           description: Successful response
@@ -928,6 +928,133 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order:
+    post:
+      tags:
+        - Order
+      summary: create new order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                client_id: 1a
+                ordered_by: 2b
+                ordered_date: 2022/12/13
+                delivery_date: 2022/12/25
+                delivery_time: 10:20 am
+                details:
+                  - item_variation_id: 1
+                    quantity: 2
+                  - item_variation_id: 2
+                    quantity: 2
+                  - item_variation_id: 3
+                    quantity: 5
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Order
+      summary: get all orders
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: client_id
+          in: query
+          schema:
+            type: string
+          example: 1a
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: 'default: "ordered_date"'
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'values: ["ASC", "DESC"], default: "DESC"'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/{order_id}:
+    get:
+      tags:
+        - Order
+      summary: get single order
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: order_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Order
+      summary: delete order
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: order_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
       responses:
         '200':
           description: Successful response
