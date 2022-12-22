@@ -460,13 +460,17 @@
 								{
 									"key": "description",
 									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa\n",
-									"type": "text",
-									"disabled": true
+									"type": "text"
+								},
+								{
+									"key": "safety_guidelines",
+									"value": "aldjwaidj\nadlkwajdwlkjdalkd",
+									"type": "text"
 								},
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+									"src": "/C:/Users/Leon Schiffer/Downloads/download (2).png"
 								},
 								{
 									"key": "status",
@@ -519,19 +523,24 @@
 									"type": "text"
 								},
 								{
-									"key": "status",
-									"value": "0",
+									"key": "safety_guidelines",
+									"value": "ald",
 									"type": "text"
 								},
 								{
-									"key": "_method",
-									"value": "PUT",
+									"key": "status",
+									"value": "0",
 									"type": "text"
 								},
 								{
 									"key": "image",
 									"type": "file",
 									"src": "/C:/Users/Leon Schiffer/Downloads/memes/261734489_10159672452874886_5687370738635405381_n.jpg"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
 								}
 							]
 						},
@@ -548,7 +557,7 @@
 							"variable": [
 								{
 									"key": "coshh_id",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -562,7 +571,7 @@
 						"header": [
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "{{organization_id}}",
 								"type": "text"
 							}
 						],
@@ -727,7 +736,7 @@
 						"header": [
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "{{organization_id}}",
 								"type": "text"
 							}
 						],
@@ -1175,7 +1184,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"1a\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"details\": [\r\n        {\r\n            \"item_variation_id\": 1,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"item_variation_id\": 2,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"item_variation_id\": 3,\r\n            \"quantity\": 5\r\n        }\r\n        \r\n    ]\r\n}",
+							"raw": "{\r\n    \"client_id\": \"1a\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 100,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1307,6 +1316,50 @@
 									"key": "order_id",
 									"value": "3"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "upload file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Leon Schiffer/Downloads/download (2).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/file",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"file"
 							]
 						}
 					},
