@@ -31,6 +31,7 @@ tags:
   - name: Client Group
   - name: Item
   - name: Order
+  - name: File
 paths:
   /api/category:
     post:
@@ -346,6 +347,11 @@ paths:
                   example: |
                     alsdjlakjd
                     asjdlkwjdaklsjdklsajdwa
+                safety_guidelines:
+                  type: string
+                  example: |-
+                    aldjwaidj
+                    adlkwajdwlkjdalkd
                 image:
                   type: string
                   format: binary
@@ -376,7 +382,7 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: status
           in: query
           schema:
@@ -423,15 +429,18 @@ paths:
                   example: |
                     alsdjlakjd
                     asjdlkwjdaklsjdklsajdwa
+                safety_guidelines:
+                  type: string
+                  example: ald
                 status:
                   type: integer
                   example: '0'
-                _method:
-                  type: string
-                  example: PUT
                 image:
                   type: string
                   format: binary
+                _method:
+                  type: string
+                  example: PUT
       parameters:
         - name: Accept
           in: header
@@ -448,7 +457,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -517,7 +526,7 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: status
           in: query
           schema:
@@ -950,12 +959,10 @@ paths:
                 delivery_date: 2022/12/25
                 delivery_time: 10:20 am
                 details:
-                  - item_variation_id: 1
-                    quantity: 2
-                  - item_variation_id: 2
-                    quantity: 2
-                  - item_variation_id: 3
-                    quantity: 5
+                  - item_id: 100
+                    size: large
+                    color: black
+                    quantity: 1
       parameters:
         - name: organizationId
           in: header
@@ -1055,6 +1062,36 @@ paths:
             type: integer
           required: true
           example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/file:
+    post:
+      tags:
+        - File
+      summary: upload file
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
