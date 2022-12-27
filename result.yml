@@ -26,6 +26,7 @@ security:
   - bearerAuth: []
 tags:
   - name: Category
+  - name: Discount
   - name: Vendor
   - name: Coshh
   - name: Client Group
@@ -179,6 +180,158 @@ paths:
             type: integer
           required: true
           example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/discount:
+    post:
+      tags:
+        - Discount
+      summary: store
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                campaign_title: Title
+                percentage: 50.11
+                start_date: '2022-02-02'
+                end_date: '2023-01-01'
+                created_by: awldkj2lj3109-1231
+                approved_by: alkdjw2-192310-13
+                status: inprogress
+                item_ids:
+                  - 1
+                  - 2
+                  - 4
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Discount
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: 'values: [approved, inprogress, pending]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/discount/{discount_id}:
+    post:
+      tags:
+        - Discount
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                campaign_title: Title edited
+                percentage: 55.11
+                start_date: '2022-01-01'
+                end_date: '2023-01-01'
+                created_by: awldkj2lj3109-1231
+                approved_by: alkdjw2-192310-14
+                status: inprogress
+                item_ids:
+                  - 5
+                  - 7
+                  - 8
+                _method: PUT
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+        - name: discount_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Discount
+      summary: find by id
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: discount_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Discount
+      summary: delete
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+        - name: discount_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -960,7 +1113,7 @@ paths:
                 delivery_time: 10:20 am
                 details:
                   - item_id: 100
-                    size: large
+                    size: larges
                     color: black
                     quantity: 1
       parameters:
