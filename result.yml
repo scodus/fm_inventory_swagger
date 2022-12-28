@@ -1111,11 +1111,13 @@ paths:
                 ordered_date: 2022/12/13
                 delivery_date: 2022/12/25
                 delivery_time: 10:20 am
+                status: ''
+                approved_by: ''
                 details:
                   - item_id: 100
-                    size: larges
+                    size: large
                     color: black
-                    quantity: 1
+                    quantity: 2
       parameters:
         - name: organizationId
           in: header
@@ -1162,6 +1164,42 @@ paths:
           schema:
             type: string
           description: 'values: ["ASC", "DESC"], default: "DESC"'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/{order_id}/update-status:
+    post:
+      tags:
+        - Order
+      summary: update order status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                status: cancelled
+                approved_by: user-126
+                _method: put
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: order_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '26'
       responses:
         '200':
           description: Successful response
