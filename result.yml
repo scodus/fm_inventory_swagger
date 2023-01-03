@@ -652,7 +652,7 @@ paths:
                 client_ids:
                   - 1
                   - 2
-                  - asdw-dawdf2j0=213
+                  - asd-123
                 status: 1
       parameters:
         - name: organizationId
@@ -768,7 +768,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '6'
       responses:
         '200':
           description: Successful response
@@ -793,9 +793,9 @@ paths:
         - name: client_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
-          example: asdw-dawdf2j0=213
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1015,7 +1015,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -1032,7 +1032,7 @@ paths:
             schema:
               type: object
               example:
-                item_ids:
+                item_variation_ids:
                   - 1
                   - 2
                   - 3
@@ -1052,7 +1052,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -1069,7 +1069,7 @@ paths:
             schema:
               type: object
               example:
-                item_ids:
+                item_variation_ids:
                   - 2
                   - 3
                   - 4
