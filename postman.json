@@ -860,7 +860,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Client Group 3\",\r\n    \"client_ids\": [\r\n        1,\r\n        2,\r\n        \"asdw-dawdf2j0=213\"\r\n    ],\r\n    \"status\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Client Group 3\",\r\n    \"client_ids\": [\r\n        1,\r\n        2,\r\n        \"asd-123\"\r\n    ],\r\n    \"status\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1000,7 +1000,7 @@
 							"variable": [
 								{
 									"key": "client_group_id",
-									"value": "1"
+									"value": "6"
 								}
 							]
 						}
@@ -1037,7 +1037,7 @@
 							"variable": [
 								{
 									"key": "client_id",
-									"value": "asdw-dawdf2j0=213"
+									"value": "1"
 								}
 							]
 						}
@@ -1258,7 +1258,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "1"
+									"value": "5"
 								}
 							]
 						}
@@ -1283,7 +1283,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item_ids\" : [1,2,3]\r\n}",
+							"raw": "{\r\n    \"item_variation_ids\" : [1,2,3]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1304,7 +1304,7 @@
 							"variable": [
 								{
 									"key": "client_group_id",
-									"value": "1"
+									"value": "5"
 								}
 							]
 						}
@@ -1329,7 +1329,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item_ids\" : [2,3,4]\r\n}",
+							"raw": "{\r\n    \"item_variation_ids\" : [2,3,4]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
