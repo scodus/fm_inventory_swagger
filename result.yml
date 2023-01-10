@@ -1114,7 +1114,7 @@ paths:
                 status: ''
                 approved_by: ''
                 details:
-                  - item_id: 100
+                  - item_id: 1
                     size: large
                     color: black
                     quantity: 2
@@ -1169,20 +1169,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/order/{order_id}/update-status:
+  /api/order/{order_id}:
     post:
       tags:
         - Order
-      summary: update order status
+      summary: update order
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                status: cancelled
-                approved_by: user-126
-                _method: put
+                delivery_date: 2023/12/25
+                delivery_time: 1:36 am
+                status: ''
+                approved_by: asdw
+                details:
+                  - item_id: 1
+                    size: large
+                    color: black
+                    quantity: 2
+                  - item_id: 1
+                    size: medium
+                    color: pink
+                    quantity: 3
+                  - item_id: 2
+                    size: medium
+                    color: pink
+                    quantity: 3
+                _method: PUT
       parameters:
         - name: organizationId
           in: header
@@ -1199,13 +1214,12 @@ paths:
           schema:
             type: integer
           required: true
-          example: '26'
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/order/{order_id}:
     get:
       tags:
         - Order
@@ -1253,6 +1267,42 @@ paths:
             type: integer
           required: true
           example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/{order_id}/update-status:
+    post:
+      tags:
+        - Order
+      summary: update order status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                status: cancelled
+                approved_by: user-126
+                _method: put
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: order_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '26'
       responses:
         '200':
           description: Successful response
