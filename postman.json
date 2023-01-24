@@ -1847,6 +1847,200 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Size",
+			"item": [
+				{
+					"name": "get all sizes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/size",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"size"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create size",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "large",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/size",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"size"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update size",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "XXL",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/size/:size_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"size",
+								":size_id"
+							],
+							"variable": [
+								{
+									"key": "size_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete size",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/size/:size_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"size",
+								":size_id"
+							],
+							"variable": [
+								{
+									"key": "size_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single size",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/size/:size_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"size",
+								":size_id"
+							],
+							"variable": [
+								{
+									"key": "size_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
