@@ -33,6 +33,7 @@ tags:
   - name: Item
   - name: Order
   - name: File
+  - name: Color
 paths:
   /api/category:
     post:
@@ -1015,7 +1016,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '5'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1036,6 +1037,7 @@ paths:
                   - 1
                   - 2
                   - 3
+                  - 4
       parameters:
         - name: organizationId
           in: header
@@ -1111,12 +1113,12 @@ paths:
                 ordered_date: 2022/12/13
                 delivery_date: 2022/12/25
                 delivery_time: 10:20 am
-                status: ''
+                status: approved
                 approved_by: ''
                 details:
                   - item_id: 1
-                    size: large
-                    color: black
+                    size: medium
+                    color: pink
                     quantity: 2
       parameters:
         - name: organizationId
@@ -1182,20 +1184,11 @@ paths:
               example:
                 delivery_date: 2023/12/25
                 delivery_time: 1:36 am
-                status: ''
                 approved_by: asdw
                 details:
                   - item_id: 1
                     size: large
                     color: black
-                    quantity: 2
-                  - item_id: 1
-                    size: medium
-                    color: pink
-                    quantity: 3
-                  - item_id: 2
-                    size: medium
-                    color: pink
                     quantity: 3
                 _method: PUT
       parameters:
@@ -1214,7 +1207,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '42'
       responses:
         '200':
           description: Successful response
@@ -1283,7 +1276,7 @@ paths:
             schema:
               type: object
               example:
-                status: cancelled
+                status: pending
                 approved_by: user-126
                 _method: put
       parameters:
@@ -1302,7 +1295,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '26'
+          example: '18'
       responses:
         '200':
           description: Successful response
@@ -1333,6 +1326,127 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/color:
+    get:
+      tags:
+        - Color
+      summary: get all colors
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Color
+      summary: create color
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Blue
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/color/{color_id}:
+    post:
+      tags:
+        - Color
+      summary: update color
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Yellow
+                _method:
+                  type: string
+                  example: PUT
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: color_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Color
+      summary: delete color
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: color_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Color
+      summary: delete color Copy
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: color_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
