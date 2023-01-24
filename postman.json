@@ -1258,7 +1258,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "5"
+									"value": "1"
 								}
 							]
 						}
@@ -1283,7 +1283,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item_variation_ids\" : [1,2,3]\r\n}",
+							"raw": "{\r\n    \"item_variation_ids\" : [1,2,3,4]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1380,7 +1380,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"1a\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"status\": \"\",\r\n    \"approved_by\": \"\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"client_id\": \"1a\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"status\": \"approved\",\r\n    \"approved_by\": \"\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1418,7 +1418,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"delivery_date\": \"2023/12/25\",\r\n    \"delivery_time\": \"1:36 am\",\r\n    \"status\": \"\",\r\n    \"approved_by\": \"asdw\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"item_id\": 2,\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"quantity\": 3\r\n        }\r\n        \r\n    ],\r\n    \"_method\": \"PUT\"\r\n}",
+							"raw": "{\r\n    \"delivery_date\": \"2023/12/25\",\r\n    \"delivery_time\": \"1:36 am\",\r\n    \"approved_by\": \"asdw\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 3\r\n        }\r\n        \r\n    ],\r\n    \"_method\": \"PUT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1438,7 +1438,7 @@
 							"variable": [
 								{
 									"key": "order_id",
-									"value": "1"
+									"value": "42"
 								}
 							]
 						}
@@ -1463,7 +1463,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": \"cancelled\",\r\n    \"approved_by\": \"user-126\",\r\n    \"_method\": \"put\"\r\n}",
+							"raw": "{\r\n    \"status\": \"pending\",\r\n    \"approved_by\": \"user-126\",\r\n    \"_method\": \"put\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1484,7 +1484,7 @@
 							"variable": [
 								{
 									"key": "order_id",
-									"value": "26"
+									"value": "18"
 								}
 							]
 						}
@@ -1647,6 +1647,200 @@
 							"path": [
 								"api",
 								"file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "get all colors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/color",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create color",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Blue",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/color",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update color",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Yellow",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/color/:color_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"color",
+								":color_id"
+							],
+							"variable": [
+								{
+									"key": "color_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete color",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/color/:color_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"color",
+								":color_id"
+							],
+							"variable": [
+								{
+									"key": "color_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete color Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/color/:color_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"color",
+								":color_id"
+							],
+							"variable": [
+								{
+									"key": "color_id",
+									"value": "2"
+								}
 							]
 						}
 					},
