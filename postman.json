@@ -1080,6 +1080,57 @@
 			"name": "Item",
 			"item": [
 				{
+					"name": "Item Variation",
+					"item": [
+						{
+							"name": "update item variation stock quantity",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "organizationId",
+										"value": "{{organization_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantity\": \"3\",\r\n    \"_method\": \"PATCH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/item-variation/:item_variation_id/quantity",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"item-variation",
+										":item_variation_id",
+										"quantity"
+									],
+									"variable": [
+										{
+											"key": "item_variation_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "store",
 					"request": {
 						"auth": {
@@ -1107,7 +1158,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Item 1\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"price\": 200,\r\n            \"quantity\": 5,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"price\": 100,\r\n            \"quantity\": 2,\r\n            \"sku\": \"sku124\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"xxl\",\r\n            \"color\": \"white\",\r\n            \"price\": 400,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"name\": \"Item 1\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"buying_price\": 200,\r\n            \"selling_price\": 250,\r\n            \"discount\": 5.3,\r\n            \"quantity\": 5,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"buying_price\": 300,\r\n            \"selling_price\": 350,\r\n            \"discount\": 15.3,\r\n            \"quantity\": 2,\r\n            \"sku\": \"sku124\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"xxl\",\r\n            \"color\": \"white\",\r\n            \"buying_price\": 400,\r\n            \"selling_price\": 450,\r\n            \"discount\": 25.3,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1145,7 +1196,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Item 1 edited\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"id\": 17,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"L\",\r\n            \"color\": \"Black\",\r\n            \"price\": 200,\r\n            \"quantity\": null,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        \r\n        {\r\n            \"id\": 18,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"XXL\",\r\n            \"color\": \"White\",\r\n            \"price\": 400,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    },\r\n    \"_method\": \"PUT\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Item 1 edited\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"sub_category_id\":3,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"id\": 17,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"L\",\r\n            \"color\": \"Black\",\r\n            \"buying_price\": 3200,\r\n            \"selling_price\": 350,\r\n            \"discount\": 35.3,\r\n            \"quantity\": null,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        \r\n        {\r\n            \"id\": 18,\r\n            \"vendor_id\": \"123\",\r\n            \"size\": \"XXL\",\r\n            \"color\": \"White\",\r\n            \"buying_price\": 500,\r\n            \"selling_price\": 550,\r\n            \"discount\": 55.3,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    },\r\n    \"_method\": \"PUT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1165,7 +1216,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "16"
+									"value": "5"
 								}
 							]
 						}

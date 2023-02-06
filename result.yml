@@ -31,6 +31,7 @@ tags:
   - name: Coshh
   - name: Client Group
   - name: Item
+  - name: Item > Item Variation
   - name: Order
   - name: File
   - name: Color
@@ -824,6 +825,41 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/item-variation/{item_variation_id}/quantity:
+    post:
+      tags:
+        - Item > Item Variation
+      summary: update item variation stock quantity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                quantity: '3'
+                _method: PATCH
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: item_variation_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/item:
     post:
       tags:
@@ -849,19 +885,25 @@ paths:
                   - vendor_id: 123ads
                     size: large
                     color: black
-                    price: 200
+                    buying_price: 200
+                    selling_price: 250
+                    discount: 5.3
                     quantity: 5
                     sku: sku123
                   - vendor_id: 123ads
                     size: medium
                     color: pink
-                    price: 100
+                    buying_price: 300
+                    selling_price: 350
+                    discount: 15.3
                     quantity: 2
                     sku: sku124
                   - vendor_id: 123ads
                     size: xxl
                     color: white
-                    price: 400
+                    buying_price: 400
+                    selling_price: 450
+                    discount: 25.3
                     quantity: 8
                     sku: sku125
                 risk_assessments:
@@ -966,14 +1008,18 @@ paths:
                     vendor_id: '123'
                     size: L
                     color: Black
-                    price: 200
+                    buying_price: 3200
+                    selling_price: 350
+                    discount: 35.3
                     quantity: null
                     sku: sku123
                   - id: 18
                     vendor_id: '123'
                     size: XXL
                     color: White
-                    price: 400
+                    buying_price: 500
+                    selling_price: 550
+                    discount: 55.3
                     quantity: 8
                     sku: sku125
                 risk_assessments:
@@ -996,7 +1042,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '16'
+          example: '5'
       responses:
         '200':
           description: Successful response
