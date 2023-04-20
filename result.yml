@@ -35,7 +35,9 @@ tags:
   - name: Order
   - name: File
   - name: Color
+  - name: Unit
   - name: Size
+  - name: actual data
 paths:
   /api/category:
     post:
@@ -58,10 +60,9 @@ paths:
                     adklwjalkjsdkljwakl
                 inventory_forecast_id:
                   type: string
-                  example: asldj01-=10i10123
+                  example: asd
                 parent_id:
-                  type: integer
-                  example: '3'
+                  type: string
                 status:
                   type: integer
                   example: '0'
@@ -854,7 +855,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -876,7 +877,6 @@ paths:
                 description: alsdjlakjd↵asjdlkwjdaklsjdklsajdwa
                 used_for: adws
                 category_id: 1
-                sub_category_id: 3
                 coshh_ids:
                   - 1
                   - 3
@@ -885,6 +885,7 @@ paths:
                   - vendor_id: 123ads
                     size: large
                     color: black
+                    margin: 20.44
                     buying_price: 200
                     selling_price: 250
                     discount: 5.3
@@ -893,6 +894,7 @@ paths:
                   - vendor_id: 123ads
                     size: medium
                     color: pink
+                    margin: 23.238
                     buying_price: 300
                     selling_price: 350
                     discount: 15.3
@@ -1004,18 +1006,20 @@ paths:
                   - 3
                 status: 1
                 variations:
-                  - id: 17
+                  - id: 28
                     vendor_id: '123'
                     size: L
                     color: Black
+                    margin: 15
                     buying_price: 3200
                     selling_price: 350
                     discount: 35.3
                     quantity: null
                     sku: sku123
-                  - id: 18
+                  - id: 29
                     vendor_id: '123'
                     size: XXL
+                    margin: 20
                     color: White
                     buying_price: 500
                     selling_price: 550
@@ -1042,7 +1046,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '5'
+          example: '9'
       responses:
         '200':
           description: Successful response
@@ -1481,7 +1485,7 @@ paths:
     get:
       tags:
         - Color
-      summary: delete color Copy
+      summary: get single color
       parameters:
         - name: organizationId
           in: header
@@ -1494,6 +1498,127 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/unit:
+    get:
+      tags:
+        - Unit
+      summary: get all units
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Unit
+      summary: create unit
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Gram
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/unit/{unit_id}:
+    post:
+      tags:
+        - Unit
+      summary: update color
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Kilo
+                _method:
+                  type: string
+                  example: PUT
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: unit_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Unit
+      summary: delete color
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: unit_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Unit
+      summary: get single unit
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: unit_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -1615,6 +1740,59 @@ paths:
             type: integer
           required: true
           example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/inventory-forecast/{client_id}/actual:
+    get:
+      tags:
+        - actual data
+      summary: actual order data
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: client_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/inventory-forecast/{date}/actual:
+    post:
+      tags:
+        - actual data
+      summary: actual order data for multiple clients
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                client_ids:
+                  - 1a
+                  - '1'
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: date
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '2022-12-01'
       responses:
         '200':
           description: Successful response
