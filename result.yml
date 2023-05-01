@@ -88,7 +88,7 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: Accept
           in: header
           schema:
@@ -885,6 +885,7 @@ paths:
                   - vendor_id: 123ads
                     size: large
                     color: black
+                    unit_id: 1
                     margin: 20.44
                     buying_price: 200
                     selling_price: 250
@@ -894,6 +895,7 @@ paths:
                   - vendor_id: 123ads
                     size: medium
                     color: pink
+                    unit_id: 1
                     margin: 23.238
                     buying_price: 300
                     selling_price: 350
@@ -903,6 +905,7 @@ paths:
                   - vendor_id: 123ads
                     size: xxl
                     color: white
+                    unit_id: 3
                     buying_price: 400
                     selling_price: 450
                     discount: 25.3
@@ -1010,6 +1013,7 @@ paths:
                     vendor_id: '123'
                     size: L
                     color: Black
+                    unit_id: 1
                     margin: 15
                     buying_price: 3200
                     selling_price: 350
@@ -1019,6 +1023,7 @@ paths:
                   - id: 29
                     vendor_id: '123'
                     size: XXL
+                    unit_id: 3
                     margin: 20
                     color: White
                     buying_price: 500
@@ -1067,7 +1072,28 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Item
+      summary: delete
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+        - name: item_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1168,8 +1194,8 @@ paths:
                 approved_by: ''
                 details:
                   - item_id: 1
-                    size: medium
-                    color: pink
+                    size: large
+                    color: black
                     quantity: 2
       parameters:
         - name: organizationId
@@ -1258,7 +1284,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '42'
+          example: '45'
       responses:
         '200':
           description: Successful response
