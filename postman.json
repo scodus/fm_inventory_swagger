@@ -699,7 +699,7 @@
 						"header": [
 							{
 								"key": "organizationId",
-								"value": "33d5fc59-963d-4bb6-b429-117ee601826d",
+								"value": "{{organization_id}}",
 								"type": "text"
 							},
 							{
@@ -729,7 +729,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Leon Schiffer/Downloads/download (2).png"
+									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
 								},
 								{
 									"key": "status",
@@ -1230,13 +1230,50 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Item 1\",\r\n    \"price\": 123,\r\n    \"description\": \"alsdjlakjd↵asjdlkwjdaklsjdklsajdwa\",\r\n    \"used_for\": \"adws\",\r\n    \"category_id\": 1,\r\n    \"coshh_ids\": [1,3],\r\n    \"status\":1,\r\n    \"variations\": [\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"unit_id\": 1,\r\n            \"margin\": 20.44,\r\n            \"buying_price\": 200,\r\n            \"selling_price\": 250,\r\n            \"discount\": 5.3,\r\n            \"quantity\": 5,\r\n            \"sku\": \"sku123\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"unit_id\": 1,\r\n            \"margin\": 23.238,\r\n            \"buying_price\": 300,\r\n            \"selling_price\": 350,\r\n            \"discount\": 15.3,\r\n            \"quantity\": 2,\r\n            \"sku\": \"sku124\"\r\n        },\r\n        {\r\n            \"vendor_id\": \"123ads\",\r\n            \"size\": \"xxl\",\r\n            \"color\": \"white\",\r\n            \"unit_id\": 3,\r\n            \"buying_price\": 400,\r\n            \"selling_price\": 450,\r\n            \"discount\": 25.3,\r\n            \"quantity\": 8,\r\n            \"sku\": \"sku125\"\r\n        }\r\n    ],\r\n    \"risk_assessments\": {\r\n        \"abc\" : \"ab\",\r\n        \"b\": \"bcde\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Item 1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "alsdjlakjd\nasjdlkwjdaklsjdklsajdwa",
+									"type": "text"
+								},
+								{
+									"key": "used_for",
+									"value": "adws",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coshh_ids",
+									"value": "[1,3]",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{url}}/api/item",
@@ -1382,7 +1419,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "1"
+									"value": "8"
 								}
 							]
 						}
@@ -1535,7 +1572,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"1a\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"status\": \"approved\",\r\n    \"approved_by\": \"\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 1,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"client_id\": \"client-124\",\r\n    \"ordered_by\": \"2b\",\r\n    \"ordered_date\": \"2022/12/13\",\r\n    \"delivery_date\": \"2022/12/25\",\r\n    \"delivery_time\": \"10:20 am\",\r\n    \"status\": \"pending\",\r\n    \"approved_by\": \"\",\r\n    \"details\": [\r\n        {\r\n            \"item_id\": 7,\r\n            \"size\": \"large\",\r\n            \"color\": \"black\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"item_id\": 7,\r\n            \"size\": \"medium\",\r\n            \"color\": \"pink\",\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"item_id\": 8,\r\n            \"size\": \"xxl\",\r\n            \"color\": \"white\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1663,7 +1700,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/order?client_id=1a&sort_key=&sort_order=",
+							"raw": "{{url}}/api/order?client_id=&sort_key=&sort_order=",
 							"host": [
 								"{{url}}"
 							],
@@ -1674,7 +1711,7 @@
 							"query": [
 								{
 									"key": "client_id",
-									"value": "1a"
+									"value": ""
 								},
 								{
 									"key": "sort_key",
@@ -1685,6 +1722,53 @@
 									"key": "sort_order",
 									"value": "",
 									"description": "values: [\"ASC\", \"DESC\"], default: \"DESC\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get remaining monthly amount",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "organizationId",
+								"value": "{{organization_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/inventory-forecast/:client_id/remaining?type=variation&date=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"inventory-forecast",
+								":client_id",
+								"remaining"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "variation"
+								},
+								{
+									"key": "date",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "client_id",
+									"value": "376203b7-07ed-4d62-b385-92690c02a2fd"
 								}
 							]
 						}

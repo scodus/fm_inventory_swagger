@@ -562,7 +562,7 @@ paths:
           in: header
           schema:
             type: string
-          example: 33d5fc59-963d-4bb6-b429-117ee601826d
+          example: '{{organization_id}}'
         - name: Accept
           in: header
           schema:
@@ -913,52 +913,36 @@ paths:
       summary: store
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                name: Item 1
-                price: 123
-                description: alsdjlakjd↵asjdlkwjdaklsjdklsajdwa
-                used_for: adws
-                category_id: 1
+              properties:
+                name:
+                  type: string
+                  example: Item 1
+                price:
+                  type: integer
+                  example: '123'
+                description:
+                  type: string
+                  example: |-
+                    alsdjlakjd
+                    asjdlkwjdaklsjdklsajdwa
+                used_for:
+                  type: string
+                  example: adws
+                category_id:
+                  type: integer
+                  example: '1'
                 coshh_ids:
-                  - 1
-                  - 3
-                status: 1
-                variations:
-                  - vendor_id: 123ads
-                    size: large
-                    color: black
-                    unit_id: 1
-                    margin: 20.44
-                    buying_price: 200
-                    selling_price: 250
-                    discount: 5.3
-                    quantity: 5
-                    sku: sku123
-                  - vendor_id: 123ads
-                    size: medium
-                    color: pink
-                    unit_id: 1
-                    margin: 23.238
-                    buying_price: 300
-                    selling_price: 350
-                    discount: 15.3
-                    quantity: 2
-                    sku: sku124
-                  - vendor_id: 123ads
-                    size: xxl
-                    color: white
-                    unit_id: 3
-                    buying_price: 400
-                    selling_price: 450
-                    discount: 25.3
-                    quantity: 8
-                    sku: sku125
-                risk_assessments:
-                  abc: ab
-                  b: bcde
+                  type: string
+                  example: '[1,3]'
+                status:
+                  type: integer
+                  example: '1'
+                image:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -1117,7 +1101,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -1230,18 +1214,26 @@ paths:
             schema:
               type: object
               example:
-                client_id: 1a
+                client_id: client-124
                 ordered_by: 2b
                 ordered_date: 2022/12/13
                 delivery_date: 2022/12/25
                 delivery_time: 10:20 am
-                status: approved
+                status: pending
                 approved_by: ''
                 details:
-                  - item_id: 1
+                  - item_id: 7
                     size: large
                     color: black
                     quantity: 2
+                  - item_id: 7
+                    size: medium
+                    color: pink
+                    quantity: 3
+                  - item_id: 8
+                    size: xxl
+                    color: white
+                    quantity: 1
       parameters:
         - name: organizationId
           in: header
@@ -1277,7 +1269,6 @@ paths:
           in: query
           schema:
             type: string
-          example: 1a
         - name: sort_key
           in: query
           schema:
@@ -1418,6 +1409,42 @@ paths:
             type: integer
           required: true
           example: '18'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/inventory-forecast/{client_id}/remaining:
+    get:
+      tags:
+        - Order
+      summary: get remaining monthly amount
+      parameters:
+        - name: organizationId
+          in: header
+          schema:
+            type: string
+          example: '{{organization_id}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: type
+          in: query
+          schema:
+            type: string
+          example: variation
+        - name: date
+          in: query
+          schema:
+            type: string
+        - name: client_id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 376203b7-07ed-4d62-b385-92690c02a2fd
       responses:
         '200':
           description: Successful response
